@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FC } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -7,11 +8,10 @@ import "react-multi-carousel/lib/styles.css";
 interface ButtonGroupProps {
     next: () => void;
     previous: () => void;
-    goToSlide: (slideIndex: number) => void;
     carouselState: { currentSlide: number; deviceType: string };
 }
 
-const ButtonGroup: FC<ButtonGroupProps> = ({ next, previous, goToSlide, carouselState }) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({ next, previous, carouselState }) => {
     const { currentSlide } = carouselState;
 
     return (
@@ -82,14 +82,14 @@ export default function CarouselCards() {
                         <ButtonGroup
                             next={() => { }}
                             previous={() => { }}
-                            goToSlide={() => { }}
                             carouselState={{ currentSlide: 0, deviceType: "desktop" }}
                         />
                     }
                 >
                     {imageCarousel.map((item, index) => (
                         <div key={index} className="h-full">
-                            <img
+                            <Image
+                                height={300}
                                 src={item.image}
                                 className="object-cover pointer-events-none w-full h-[300px]"
                                 alt={`Banner ${index + 1}`}
