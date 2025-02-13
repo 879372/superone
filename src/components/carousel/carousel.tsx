@@ -90,6 +90,7 @@ export default function CarouselCards() {
                         <div key={index} className="h-full">
                             <Image
                                 height={300}
+                                width={300}
                                 src={item.image}
                                 className="object-cover pointer-events-none w-full h-[300px]"
                                 alt={`Banner ${index + 1}`}
