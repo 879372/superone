@@ -222,7 +222,7 @@ export default function DropdowMenu() {
                                             </ul>
                                         ))}
                                     </div>
-                                    <div className="hidden md:flex max-w-[1290px] bg-[#FAF7F4]  overflow-x-auto">
+                                    <div className="hidden md:flex max-w-[1290px] bg-[#FAF7F4]">
                                         {CardsDepartaments.map((card, index) => (
                                             <CardWithCircle key={index} imageSrc={card.imageSrc} description={card.description} />
                                         ))}
