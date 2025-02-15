@@ -4,7 +4,6 @@ import {
     MenubarMenu,
     MenubarTrigger,
 } from "@/components/ui/menubar"
-
 import { useState } from "react"
 import CardWithCircle from "../ui/cardwithcircle";
 
@@ -102,6 +101,16 @@ const infoMenu = {
                 "Lubrificantes e Óleos",
                 "Segurança Veicular"
             ]
+        },
+        {
+            categories: "Automotivo",
+            subcategories: [
+                "Som Automotivo",
+                "Peças e Acessórios",
+                "Ferramentas",
+                "Lubrificantes e Óleos",
+                "Segurança Veicular"
+            ]
         }
     ]
 };
@@ -117,10 +126,7 @@ const CardsDepartaments = [
     { imageSrc: '/icon8.png', description: 'Imóveis' },
     { imageSrc: '/icon9.png', description: 'Óculos' },
     { imageSrc: '/icon10.png', description: 'Serviços' },
-  ];
-  
-
-
+];
 
 export default function DropdowMenu() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -137,13 +143,24 @@ export default function DropdowMenu() {
         setIsOpen(!isOpen)
     }
 
-
     return (
         <div className="flex justify-center items-center mx-auto w-full bg-[#F7F3EE]">
-            <div className="flex justify-center items-center w-full max-w-[1290px]">
-                <div className="flex gap-3 items-center w-full min-h-[60px]">
-                    <div className="flex gap-5">
-                        <Menubar className="w-full">
+            <div className="flex justify-center items-center w-full max-w-[1290px] px-5">
+                <div className="flex gap-3 items-center w-full h-14 md:min-h-[60px]">
+                    <div className="items-center gap-1 md:hidden flex">
+                        <span className="cursor-pointer">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="36" height="36" rx="18" fill="#F7F3EE" />
+                                <path d="M17.9994 9C22.0219 9 25.1528 12.6206 24.9942 16.6633C24.7317 23.4347 17.9994 28 17.9994 28M11 19.3632C11.0953 19.6581 11.2012 19.9478 11.3124 20.2321C13.2453 24.9874 18.0006 27.9996 18.0006 27.9996M18.0006 9C13.9781 9 10.8472 12.2642 11.0058 15.9091M19.7357 14.0665C20.7911 15.1169 20.7911 16.8199 19.7357 17.8703C18.6804 18.9206 16.9693 18.9206 15.9139 17.8703C14.8585 16.8199 14.8585 15.1169 15.9139 14.0665C16.9693 13.0162 18.6804 13.0162 19.7357 14.0665Z" stroke="#F47920" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </span>
+                        <div className="text-[14px] flex flex-col space-y-[-5px] cursor-pointer hover:opacity-[0.9]">
+                            <span className="font-semibold">Onde</span>
+                            <p className="">você está?</p>
+                        </div>
+                    </div>
+                    <div className="md:flex gap-5 hidden">
+                        <Menubar className="w-full ">
                             <MenubarMenu>
                                 <MenubarTrigger className="h-full rounded-full px-0 ">
                                     <div
@@ -167,8 +184,8 @@ export default function DropdowMenu() {
                                         </svg>
                                     </div>
                                 </MenubarTrigger>
-                                <MenubarContent className="flex flex-col items-center justify-center overflow-auto max-h-[550px]">
-                                    <div className="grid grid-cols-4 justify-center w-full px-20 py-10 gap-5 text-lg">
+                                <MenubarContent className="flex flex-col items-center justify-center overflow-y-auto max-h-[550px]">
+                                    <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 justify-center w-full px-20 py-10 gap-5 text-lg">
                                         {infoMenu.departments.map((item, index) => (
                                             <ul key={index}>
                                                 <li className="font-semibold">{item.categories}</li>
@@ -205,7 +222,7 @@ export default function DropdowMenu() {
                                             </ul>
                                         ))}
                                     </div>
-                                    <div className="flex max-w-[1290px] bg-[#FAF7F4]">
+                                    <div className="hidden md:flex max-w-[1290px] bg-[#FAF7F4]  overflow-x-auto">
                                         {CardsDepartaments.map((card, index) => (
                                             <CardWithCircle key={index} imageSrc={card.imageSrc} description={card.description} />
                                         ))}
@@ -214,12 +231,12 @@ export default function DropdowMenu() {
                             </MenubarMenu>
                         </Menubar>
                     </div>
-                    <span className="h-6 w-[1px] bg-[#ABABAB]"></span>
-                    <div >
+                    <span className="hidden md:flex h-6 w-[1px] bg-[#ABABAB]"></span>
+                    <div className="hidden md:flex">
                         <p>Descontos Cliente Unimed Natal</p>
                     </div>
                 </div>
-                <div className="flex justify-end w-full">
+                <div className="sm:flex hidden justify-end w-full">
                     <p>Vendas no uniclub</p>
                 </div>
             </div>

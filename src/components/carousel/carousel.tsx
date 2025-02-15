@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { FC } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -15,24 +13,24 @@ interface ButtonGroupProps {
 
 const ButtonGroup: FC<ButtonGroupProps> = ({ next, previous }) => {
     return (
-            <div className="absolute inset-0 top-1/3 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button
-                    className="bg-[#F47920] py-7 px-3 rounded-2xl shadow-lg absolute left-[-15px] top-1/2 transform -translate-y-1/2"
-                    onClick={previous}
-                >
-                    <svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.89404 1L1.86136 7L5.89404 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
-                <button
-                    className="bg-[#F47920] py-7 px-3 rounded-2xl shadow-lg absolute right-[-15px] top-1/2 transform -translate-y-1/2"
-                    onClick={next}
-                >
-                    <svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.10596 1L5.13864 7L1.10596 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
-            </div>
+        <div className="hidden absolute inset-0 top-1/3 md:flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <button
+                className="bg-[#F47920] py-7 px-3 rounded-2xl shadow-lg absolute left-[-15px] top-1/2 transform -translate-y-1/2"
+                onClick={previous}
+            >
+                <svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.89404 1L1.86136 7L5.89404 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+            <button
+                className="bg-[#F47920] py-7 px-3 rounded-2xl shadow-lg absolute right-[-15px] top-1/2 transform -translate-y-1/2"
+                onClick={next}
+            >
+                <svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.10596 1L5.13864 7L1.10596 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+        </div>
     );
 };
 
@@ -49,7 +47,7 @@ export default function CarouselBanner() {
     };
 
     return (
-        <div className="w-full select-none h-[300px] mt-[182px] py-10  relative group">
+        <div className="w-full select-none md:h-[300px] mt-[150px] md:mt-[182px] py-2 md:py-10  relative group">
             <Carousel
                 swipeable
                 draggable

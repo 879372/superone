@@ -1,7 +1,6 @@
 'use client'
 import CarouselBanner from "@/components/carousel/carousel";
-import CarouselCards from "@/components/carouselCards/carousel";
-
+import CarouselCards from "@/components/cards/cards";
 import Header from "@/components/header/page";
 import CardWithCircle from "@/components/ui/cardwithcircle";
 
@@ -20,11 +19,11 @@ const CardsDepartaments = [
 
 export default function Home() {
   return (
-    <div className="max-w-[1300px] mx-auto">
+    <div className="max-w-[1300px] mx-auto px-5">
       <Header />
       <main className="flex flex-col items-center justify-center w-full">
         <CarouselBanner />
-        <div className="flex w-full pt-20 overflow-auto">
+        <div className="flex w-full md:pt-20 overflow-auto xl:overflow-hidden">
           {CardsDepartaments.map((card, index) => (
             <CardWithCircle key={index} imageSrc={card.imageSrc} description={card.description} />
           ))}
